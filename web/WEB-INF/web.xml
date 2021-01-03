@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+         version="4.0">
+    <servlet>
+        <servlet-name>Servlet</servlet-name>
+        <servlet-class>com.Servlet</servlet-class>
+    </servlet>
+    <filter>
+        <!-- 过滤器的标识名 -->
+        <filter-name>EncodingFilter</filter-name>
+        <!-- 过滤器对应的实现类 -->
+        <filter-class>com.Filter.EncodingFilter</filter-class>
+        <!-- 配置初始化参数 -->
+        <init-param>
+            <param-name>encoding</param-name>
+            <param-value>UTF-8</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <!-- 过滤器的标识名 -->
+        <filter-name>EncodingFilter</filter-name>
+        <!-- 过滤器的URL匹配模式 -->
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+</web-app>

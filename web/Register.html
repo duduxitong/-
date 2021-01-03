@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>-->
+    <meta charset="gb2312"/>
+    <title>Title</title>
+    <script>
+        function validate() {
+            var email = document.getElementById("t_email").value;
+            var password = document.getElementById("t_pwd").value;
+            //alert(email);
+            //alert(password);
+            //验证邮箱合法性
+            var pattern = /^([a-zA-Z]|[0-9])(\w|\-)+@[a-zA-Z0-9]+\.([a-zA-Z]{2,4})$/;
+            if ( email == ''){
+                alert("邮箱不能为空！");
+                return false;
+            }else if (!pattern.test(email)){
+                alert("email格式不正确");
+                return false;
+            }
+
+            //验证密码
+            if ( password == ''){
+                alert("密码不能为空！");
+                return false;
+            }else if (password.length<6||password.length>12){
+                alert("密码长度为6-8个字符");
+                return false;
+            }
+
+            return ture;
+        }
+    </script>
+    <style>
+        #login-box {
+            /*border: 1px solid blue;*/
+            width: 30%;
+            text-align: center;
+            margin: 0 auto;
+            margin-top: 15%;
+            background: #00000080;
+            padding: 20px 50px;
+        }
+        #login-box h1 {
+            color: white;
+        }
+        #login-box .form .item input {
+            width: 200px; /* 设置合适的宽度 */
+            border: 0; /* 首先将边界取消，方便下面修改下部边界宽度 */
+            border-bottom: 5px solid white; /* 将下边界进行修改，显示出横线效果 */
+            font-size: 18px; /* 将字体适当的变大加粗 */
+            background: #ffffff00; /* 将输入框设置为透明 */
+            color: white; /* 上面的文本颜色设置为白色，但是placeholder的颜色要单独设置 */
+            padding: 5px 10px; /* 为了placeholder的内容不是顶格显示，增加内部边界 */
+        }
+        #login-box .form .item i {
+            color: white;
+            font-size: 18px;
+        }
+        #login-box button {
+            border: 0; /* 取消按钮的边界 */
+            width: 150px; /* 设置合适的按钮的长和宽 */
+            height: 30px;
+            margin-top: 18px; /* 设置合适的上部外框的宽度，增加与上面的password框的距离 */
+            font-size: 18px; /* 修改按钮文字的大小 */
+            color: white; /* 修改按钮上文字的颜色 */
+            border-radius: 25px; /* 将按钮的左右边框设置为圆弧 */
+            background-image: linear-gradient(to right, #00dbde 0%, #fc00ff 100%); /* 为按钮增加渐变颜色 */
+        }
+        body {
+            background-image: url("//www.bing.com/th?id=OHR.LargestCave_ZH-CN2069899703_1920x1080.jpg&rf=LaDigue_1920x1080.jpg&pid=HpEdgeAn"); /* 首先增加背景图 */
+            background-size:  100% auto; /* 设置背景的大小 */
+            background-repeat: no-repeat; /* 将背景设置为不重复显示 */
+        }
+    </style>
+</head>
+<body>
+    <form action="RegisterServlet" method="get" onsubmit="return validate()">
+        <div id="login-box">
+            <h1>Regist</h1>
+            <div class="form">
+                <div class="item">
+                    <i class="fa fa-user-circle" aria-hidden="true"></i>
+                    <input type="text" placeholder="用户名" name="t_email" id="t_email">
+                </div>
+
+                <div class="item">
+                    <i class="fa fa-key" aria-hidden="true"></i>
+                    <input type="password" placeholder="密码" name="t_pwd" id="t_pwd">
+                </div>
+
+            </div>
+
+            <button type="submit">Regist</button>
+        </div>
+    </form>
+</body>
+</html>
